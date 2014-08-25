@@ -51,7 +51,82 @@
         <a href="#"
          title="<p><em style='display:block;color:rgb(114, 205, 255);'>How is this data collected?</em> Manually, via a script run on the Google App Enging FLOW instances.</p>
             <p><em style='display:block;color:rgb(114, 205, 255);'>How often is this data refreshed?</em> Monthly.</p>"
-         class="tooltips moreLink">info</a> <a href="" class="moreLink darkBg  hidden">See more</a> </li>
+         class="tooltips moreLink">info</a> <a href="" class="moreLink darkBg  hidden">See more</a>
+      </li>
+
+      <li class="dashSingle" id="flowDummy"></li>
+
+      <li class="dashSingle" id="flowChart"></li>
+
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+      <script type="text/javascript">
+        google.load('visualization', '1', {'packages' : ['corechart']});
+        google.setOnLoadCallback(function() { drawChart('') });
+
+        var dataSourceUrl = 'https://spreadsheets.google.com/tq?key=1G9wXq8cSKSExacDlizoWSoW1PDIEVkki7lMi9M7Q6bc&pub=1';
+
+        function drawChart() {
+          var query = new google.visualization.Query(dataSourceUrl);
+          query.send(handleQueryResponse);
+        }
+
+        function handleQueryResponse(response) {
+          // get (incomplete) info from the style sheets
+          var barColor = $(".dashData.flowData li").css("color");
+          var font = $(".dashData.flowData li").css("font-family");
+
+          //The google spreadsheet data
+          var data = response.getDataTable();
+
+          // create x-axis labels from first column in the spreadsheet
+          var arrayLength = data.tf.length;
+          var tics = [];
+          for (i=0; i<arrayLength; i++  ) {
+            tics[i] = data.tf[i].c[0].v;
+          }
+          var chart = new google.visualization.BarChart(document.getElementById('flowChart'));
+          var options = {
+            title: "AKVO FLOW SURVEY COUNT",
+            titlePosition: 'in', // chart title within the chart area
+            titleTextStyle: {
+              color: '#e77c00',
+              fontName: font,
+              fontSize: 12,
+              bold: false,
+              italic: false
+            },
+            orientation: 'horizontal', // vertical bars
+            backgroundColor: '#19191c', // color of the whole div, TODO: couldn't get this from css
+            chartArea: {
+              backgroundColor: '#231d1a', // color of the actual chart, TODO: couldn't get this from css
+              left:'15%', top: '10%',
+              width:'70%', height:'72%'
+            },
+            colors:[barColor], // color of the actual bars
+            hAxis: {
+              ticks: tics, // x-axis labels
+              gridlines: {color: '#3d352e'}, // vertical grid lines color
+              textStyle: { //x-axis labels styling
+                color: '#574F48',
+                fontName: font
+              }
+            },
+            vAxis: {
+              gridlines: {color: '#3d352e'}, //horizontal grid lines color
+              textStyle: { //y-axis labels styling
+                color: '#574F48',
+                fontName: font
+              }
+            },
+            height: 350,
+            legend: {position: 'none'} // remove bar legend
+          };
+
+          chart.draw(data, options);
+        }
+      </script>
+
       <li class="dashSingle" id="opendaidDash">
         <h2>Akvo Openaid</h2>
         <ul class="openAidData dashData">
