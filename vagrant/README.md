@@ -15,7 +15,7 @@ If you have never used Vagrant or the RSR Vagrant development environment, follo
 
 ## First Start Up
 
-The first time you use the environment:
+The first time you use the environment locate the local akvo-web folder:
 
 1. Run `vagrant/setup_etc_hosts.sh` - this will add the necessary entries to your `/etc/hosts` file to be able to access the homepage
 
