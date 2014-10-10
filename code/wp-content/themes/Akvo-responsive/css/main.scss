@@ -1,7 +1,7 @@
 /*---------------------------------------------------------------------------------
 
-		Title:          Akvo.org Styles for Desktop, mobile, tablet
-		Author:         Loic Sans, loic@akvo.org
+        Title:          Akvo.org Styles for Desktop, mobile, tablet
+        Author:         Loic Sans, loic@akvo.org
 
 /*---------------------------------------------------------------------------------*/
 @import 'library';
@@ -138,14 +138,14 @@ img {
 a {
     color: #5d9de5;
     text-decoration: none;
-	@include transition(color 0.2s linear);
+    @include transition(color 0.2s linear);
 }
 a:hover {
     color: #3f7cc0;
     text-decoration: underline;
 }
 /*--------------------------------------------------------------
-   						Default Typography.
+                           Default Typography.
   --------------------------------------------------------------*/
 
 /* Default font settings.
@@ -176,7 +176,7 @@ body.network {
     }
 }
 /*--------------------------------------------------------------
-							Headings
+                            Headings
 -------------------------------------------------------------- */
 h1,
 h2,
@@ -232,8 +232,8 @@ h6 img {
     color: rgb(226, 124, 0);
     position: relative;
     /* text-overflow:     ellipsis;
-                	white-space:     nowrap;
-                	overflow:     hidden;
+                    white-space:     nowrap;
+                    overflow:     hidden;
                 */
 }
 .backLinedGrey {
@@ -243,8 +243,8 @@ h6 img {
     text-shadow: none;
     /* text-overflow:     ellipsis;
 
-                	white-space:     nowrap;
-                	overflow:     hidden;
+                    white-space:     nowrap;
+                    overflow:     hidden;
                 */
 }
 .backLined {
@@ -321,7 +321,7 @@ p {
     margin: 3em auto;
 }
 /*--------------------------------------------------------------
-							Misc.
+                            Misc.
 --------------------------------------------------------------*/
 .hidden {
     display: none !important;
@@ -336,7 +336,7 @@ a img {
     border: none;
 }
 /* self-clear floats
-	I use a class named .floats-in > This implicitely says that each time a container contains floated elements within. We can clear those by applying this class to that container.
+    I use a class named .floats-in > This implicitely says that each time a container contains floated elements within. We can clear those by applying this class to that container.
 */
 .floats-in:after {
     clear: both;
@@ -363,6 +363,9 @@ hr.delicate {
     border: 0em none;
     height: 1px;
     margin: 50px auto 20px auto;
+}
+.foundations.Page hr.delicate {
+    margin: 20px auto 50px;
 }
 hr.delicateSmall {
     width: 70%;
@@ -397,12 +400,12 @@ hr.delicateSmall {
 }
 .editlink a,
 .gatewayLink {
-	@include box-shadow(0em 1px rgba(255, 255, 255, 0.1) inset, 0em 1px 5px rgba(0, 0, 0, 0.25));
+    @include box-shadow(0em 1px rgba(255, 255, 255, 0.1) inset, 0em 1px 5px rgba(0, 0, 0, 0.25));
     color: white !important;
     display: table;
     margin: 1em 0em 0em;
     padding: 0.25em 0.5em;
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
 }
 .editlink a:hover,
 .gatewayLink:hover,
@@ -437,7 +440,7 @@ iframe {
     margin: 1em auto 2em auto !important;
     padding: 0.5em 1em;
     position: relative;
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
 }
 .loadMore:hover {
     color: rgb(255, 255, 255);
@@ -495,7 +498,7 @@ nav {
     li {
         @include transition(background-color 0.4s linear);
         a {
-        	@include transition(background-color 0.4s linear);
+            @include transition(background-color 0.4s linear);
         }
     }
 }
@@ -593,7 +596,7 @@ div.centerED > p,
     font-weight: bold;
 }
 .bgDeco {
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
     background: rgb(248, 248, 248);
     min-height: 150px;
     /*color:    rgb(123,123,123);*/
@@ -623,13 +626,13 @@ div.centerED > p,
     }
 }
 .bgDecoB {
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
     background: rgb(248, 248, 248);
     min-height: 210px;
     text-shadow: 1px 1px 0em rgb(255, 255, 255);
 }
 /*==========================================================================
-								   Forms
+                                   Forms
 ========================================================================== */
 
 @mixin placeholder-color($color){
@@ -640,7 +643,7 @@ div.centerED > p,
   &:-moz-placeholder{
     color: $color;
   }
-    
+
   &::-webkit-input-placeholder{
     color: $color;
   }
@@ -661,14 +664,14 @@ button,
 select {
     color: rgb(142, 142, 142);
     font-weight: normal;
-	@include placeholder-color(rgb(149, 148, 185));
+    @include placeholder-color(rgb(149, 148, 185));
 }
 input,
 textarea {
     @include box-shadow(0em 1px 2px rgb(242, 240, 230) inset);
     background: rgb(242, 240, 230);
     border: 1px solid rgb(242, 240, 230);
-	@include border-radius(0.15em);
+    @include border-radius(0.15em);
 }
 textarea {
     font-family: sans-serif;
@@ -787,10 +790,10 @@ input[type="submit"] {
     color: rgb(255, 255, 255);
     padding: 7px 10px;
     text-transform: uppercase;
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
 }
 /*---------------------------------------------
-				  Back to top
+                  Back to top
 --------------------------------------------- */
 #back-top {
     bottom: 0px;
@@ -847,17 +850,17 @@ input[type="submit"] {
     margin: 0em auto;
     transition: 1s;
     width: 28px;
-	@include border-radius(0.2em);
+    @include border-radius(0.2em);
 }
 
 @include responsive (small-max-screens) {
 
     #back-top span {
-		@include border-radius(0.5em);
+        @include border-radius(0.5em);
         height: 80px;
         margin: 0em auto 4px auto;
         width: 80px;
-		background-size:50%;
+        background-size:50%;
     }
 }
 a.helpIcon {
@@ -884,7 +887,7 @@ a.helpIcon:hover {
 #tooltip {
     @include box-shadow(0em 0em 2px rgb(0, 0, 0));
     background: rgb(255, 255, 165);
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
     display: none;
     font-size: 1.2em;
     line-height: 1.3em;
@@ -894,7 +897,7 @@ a.helpIcon:hover {
     top: 0em;
 }
 /************************************************************************
-								STRUCTURE
+                                STRUCTURE
 ************************************************************************/
 #content {
     position: relative;
@@ -905,10 +908,10 @@ a.helpIcon:hover {
 }
 @include responsive (small-max-screens) {
 
-	#content {
-		padding:0 1%;
-		width: 98%;
-	}
+    #content {
+        padding:0 1%;
+        width: 98%;
+    }
     .home #content {
         margin: 0px auto 0em;
     }
@@ -1041,7 +1044,7 @@ a.helpIcon:hover {
 @include responsive (small-max-screens) {
 
     .threeColumns > li {
-   		 @include box-sizing(border-box);
+            @include box-sizing(border-box);
         padding: 0px 10px;
         width: 100%;
     }
@@ -1102,7 +1105,7 @@ a.helpIcon:hover {
 }
 .fourColumns > div,
 .fourColumns > li {
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
     float: left;
     margin: 0em 0.15%;
     min-height: 200px;
@@ -1137,25 +1140,25 @@ a.helpIcon:hover {
 .splitImg {
     margin: 2.5em auto;
     position: relative;
-		&:nth-child(2n) {
-			background: rgb(245, 245, 245);
-		}
-		img {
-			display: inline-block;
-			margin: 3.5em 0em 0em;
-			vertical-align: middle;
-			width: 25%;
-			}
-		.paragraphesRight {
-			float: right;
-			margin: 2.5em 2.5% 0em;
-			position: relative;
-			width: 70%;
-		}
-		.paragraphesLeft {
-			@extend .paragraphesRight;
-			float: left;
-		}
+        &:nth-child(2n) {
+            background: rgb(245, 245, 245);
+        }
+        img {
+            display: inline-block;
+            margin: 3.5em 0em 0em;
+            vertical-align: middle;
+            width: 25%;
+            }
+        .paragraphesRight {
+            float: right;
+            margin: 2.5em 2.5% 0em;
+            position: relative;
+            width: 70%;
+        }
+        .paragraphesLeft {
+            @extend .paragraphesRight;
+            float: left;
+        }
 }
 .splitImgSmall {
     border-bottom: 1px solid rgb(225, 225, 225);
@@ -1163,25 +1166,25 @@ a.helpIcon:hover {
     padding: 0.5em 2.5%;
     position: relative;
     width: 85%;
-	&:nth-child(2n) {
- 	   background: rgb(245, 245, 245);
-	}
-	img {
-		display: inline-block;
-		margin: 3.5em 0em 0em;
-		vertical-align: middle;
-		width: 30%;
-	}
-	.paragraphesRight {
-		float: right;
-		margin: 2.5em 2.5% 0em;
-		position: relative;
-		width: 65%;
-	}
-	.paragraphesLeft {
-		@extend .paragraphesRight;
-		float: left;
-	}
+    &:nth-child(2n) {
+        background: rgb(245, 245, 245);
+    }
+    img {
+        display: inline-block;
+        margin: 3.5em 0em 0em;
+        vertical-align: middle;
+        width: 30%;
+    }
+    .paragraphesRight {
+        float: right;
+        margin: 2.5em 2.5% 0em;
+        position: relative;
+        width: 65%;
+    }
+    .paragraphesLeft {
+        @extend .paragraphesRight;
+        float: left;
+    }
 }
 
 .splitImgMid {
@@ -1226,6 +1229,11 @@ a.helpIcon:hover {
 }
 .contact-info .threeColumns li.bgDecoB {
     min-height: 330px;
+    @include responsive (small-max-screens) {
+        margin: 1%;
+        padding: 4%;
+        min-height: 0;
+    }
 }
 /* .header
 --------------------------------------------- */
@@ -1347,7 +1355,7 @@ div.headerWrap {
 @include responsive (small-max-screens) {
 
     .logInHeader a {
-		@include border-radius(0.25em);
+        @include border-radius(0.25em);
         background: rgba(255, 255, 255, 0.2);
         font-size: 130%;
         padding: 0.25em 0.5em;
@@ -1357,7 +1365,7 @@ div.headerWrap {
     color: rgb(255, 255, 255);
 }
 /* ---------------------------------------------
-			Top navigation styles
+            Top navigation styles
 --------------------------------------------- */
 #navbar {
     display: none;
@@ -1403,8 +1411,8 @@ header.top li.current_page_item > a {
     z-index: 9998;
 }
 header li.menu-item > a {
-	color:white;
-	}
+    color:white;
+    }
 
 .current-menu-parent > a, .current-menu-item > a {
   color: #de8929 !important; }
@@ -1622,7 +1630,7 @@ nav#n ul li:last-child {
     }
 }
 /*-----------------------------------
-	Top Header Search input
+    Top Header Search input
 ------------------------------------*/
 input[type="search"] {
     -moz-transition: width 0.2s linear;
@@ -1639,7 +1647,7 @@ input[type="search"] {
     vertical-align: middle;
     width: 10%;
     /* z-index:    1099999;
-                	opacity:    0.8;
+                    opacity:    0.8;
                 */
 }
 @include responsive (small-max-screens) {
@@ -1690,7 +1698,7 @@ header#top input[type="submit"] {
     display: none;
 }
 /*---------------------------------------------
- 				breadCrumb
+                 breadCrumb
 --------------------------------------------- */
 body.home div.breadCrumb {
     display: none;
@@ -1707,8 +1715,8 @@ div.breadCrumb {
 
     div.breadCrumb {
         margin: 0em auto;
-		width: 98%;
-		padding: 10px 0em 15px 2%;
+        width: 98%;
+        padding: 10px 0em 15px 2%;
     }
 }
 div.breadCrumbs {
@@ -1748,7 +1756,7 @@ div.breadCrumbs {
     color: $akvoPurple;
 }
 /*---------------------------------------------------------------------------------------
-											Home Page
+                                            Home Page
 ---------------------------------------------------------------------------------------*/
 body.home h1.akvoDescr {
     font-size: 2em;
@@ -1830,7 +1838,7 @@ body.home h1.akvoDescr {
 @include responsive (small-max-screens) {
 
     #actionHeroBox #actionHeroInfo {
-		@include border-radius(0.5em);
+        @include border-radius(0.5em);
         @include box-shadow(none);
         background: none;
         bottom: inherit;
@@ -1906,32 +1914,32 @@ body.home h1.akvoDescr {
     }
 }
 #actionHeroBox {
-		h1 {
-			display: block;
-			font-family: 'Raleway', sans-serif;
-			font-size: 1.5em;
-			font-weight: 700;
-			position: relative;
-			margin: 10px 10px 0em 0em;
-		}
-		h2 {
-			display: block;
-			font-size: 1.2em;
-			margin: 0em 10px 5px 0em;
-		}
+        h1 {
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            position: relative;
+            margin: 10px 10px 0em 0em;
+        }
+        h2 {
+            display: block;
+            font-size: 1.2em;
+            margin: 0em 10px 5px 0em;
+        }
 }
 @include responsive (small-max-screens) {
 
     #actionHeroBox {
-		 h1 {
-			font-size: 1.8em;
-			text-align: center;
-		}
-    	h2 {
-			font-size: 1.4em;
-			text-align: center;
-    	}
-	}
+         h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.4em;
+            text-align: center;
+        }
+    }
 }
 #actionHeroBox h2,
 #actionHeroBox h1,
@@ -1954,7 +1962,7 @@ body.home h1.akvoDescr {
 @include responsive (small-max-screens) {
 
     .actionHeroBtn {
-		@include border-radius(0.5em);
+        @include border-radius(0.5em);
         @include box-shadow(none);
         background: rgb(32, 32, 36);
         border: 0em none;
@@ -1995,7 +2003,7 @@ body.home h1.akvoDescr {
 }
 #productWindow div.fourColumns div {
     text-align: center;
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
 }
 @include responsive (small-max-screens) {
 
@@ -2126,22 +2134,22 @@ body.home h1.akvoDescr {
 }
 #rsrBucket h1 {
     background: url("../images/rsr-logo-40px.png") center top no-repeat;
-	background-size: 85%;
+    background-size: 85%;
 }
 #flowBucket h1 {
     background: url("../images/flow-logo-40px.png") center top no-repeat;
-	background-size: 85%;
+    background-size: 85%;
 }
 #openaidBucket h1 {
     background: url("../images/openaid-logo-40px.png") center top no-repeat;
-	background-size: 85%;
+    background-size: 85%;
 }
 #akvopedia h1 {
     background: url("../images/akvopedia-logo-40px.png") center top no-repeat;
-	background-size: 85%;
+    background-size: 85%;
 }
 /*************************************************************
-					FAQ
+                    FAQ
 *************************************************************/
 .faqMenu {
     margin: 0em 0em 10px;
@@ -2161,9 +2169,9 @@ a.faqMenuHead,
         color: $akvoLink;
         display: block;
         font-size: 120%;
-		padding: 20px 5%;
-		width: 90%;
-	    }
+        padding: 20px 5%;
+        width: 90%;
+        }
 }
 a.faqMenuHead.openED {
     background: url("../images/menuCollapseShow.png") left bottom no-repeat;
@@ -2190,9 +2198,9 @@ ul.faqMenuList > li,
     ul.faqMenuList li {
         background: rgb(248, 248, 248);
         margin: 0em 0em 2px 0px;
-		padding: 20px 5%;
-		width: 90%;
-		}
+        padding: 20px 5%;
+        width: 90%;
+        }
 }
 ul.faqMenuList li:first-child {
     margin: 5px 0em 2px 0px;
@@ -2205,7 +2213,7 @@ ul.faqMenuList li a {
 }
 ul.faqMenuList h3,
 .qa-faq-answer h3 {
-	margin-top:1em;
+    margin-top:1em;
 }
 
 .qa-faq {
@@ -2228,7 +2236,7 @@ ul.faqMenuList h3,
     text-align: left !important;
 }
 /*************************************************************
-					Looking for more
+                    Looking for more
 *************************************************************/
 #moreStuffHome {
     padding: 3.5em 0em;
@@ -2309,7 +2317,7 @@ moreStuffHome figcaption a {
 }
 #moreStuffHome figure > div {
     background: rgb(236, 236, 236);
-	@include border-radius(0.35em);
+    @include border-radius(0.35em);
 //    border: 1px solid rgb(212, 212, 212);
     margin: 0em 5%;
     max-height: 150px;
@@ -2353,10 +2361,10 @@ moreStuffHome figcaption a {
 }
 #moreStuffHome div.fourColumns > div {}
 /*-----------------------------------
-				BLOG
+                BLOG
 ------------------------------------*/
 .fluid-width-video-wrapper {
-	margin-bottom:50px !important;}
+    margin-bottom:50px !important;}
 .entry {
     margin: 5px 0em 0em;
     padding: 5px 1% 0em 1%;
@@ -2505,7 +2513,7 @@ div.meta a {
     margin: 0em 0em 0em 5px;
 }
 blockquote {
-	@include border-radius(0.3em);
+    @include border-radius(0.3em);
     @include box-sizing(border-box);
     background: #fbf0de;
     color: rgb(153, 153, 153);
@@ -2561,7 +2569,7 @@ blockquote p {
 }
 .nav-prev a,
 .nav-next a {
-	@include border-radius(0.2em);
+    @include border-radius(0.2em);
     background: rgb(167, 199, 220);
     color: rgb(255, 255, 255);
     display: block;
@@ -2573,7 +2581,7 @@ blockquote p {
     color: rgb(255, 255, 255);
 }
 /*-----------------------------------
-				Comments
+                Comments
 ------------------------------------*/
 #respond {
     background: rgb(242, 242, 242);
@@ -2634,7 +2642,7 @@ p#allowed_tags code {
     top: 0.5em;
 }
 #cancel-comment-reply-link {
-	@include border-radius(0.25em);
+    @include border-radius(0.25em);
     display: block;
     font-size: 0.8em;
     padding: 0px 4px;
@@ -2778,14 +2786,14 @@ p#allowed_tags code {
     top: 1px;
 }
 /*-----------------------------------
-			Widget area
+            Widget area
 ------------------------------------*/
 #sidebar-responsive {
     display: none;
 }
 @include responsive (small-max-screens) {
     #sidebar-responsive {
-   		 @include box-sizing(border-box);
+            @include box-sizing(border-box);
         display: block;
         margin-bottom: 15px;
         padding: 0em 12px;
@@ -2859,7 +2867,7 @@ p#allowed_tags code {
 #sidebar .widget ul li a {
     @include border-radius(0.1em);
     @include transition(color 0.2s linear);
-	@include transition(background .2s linear);
+    @include transition(background .2s linear);
     display: block;
     font-weight: normal;
     padding: 3px 3%;
@@ -2871,18 +2879,18 @@ p#allowed_tags code {
     text-decoration: none;
 }
 /*----------------------------------------------------------------------
-								Footer
+                                Footer
 -----------------------------------------------------------------------*/
 li.problem { margin: 1em 0 0 0;
-			a {
-				color: rgb(227, 27, 35);
-				opacity: 1;
-   			    @include transition(opacity 0.2s linear);
-				&:hover {
-					opacity: 0.7;
-					}
-				}
-			 }
+            a {
+                color: rgb(227, 27, 35);
+                opacity: 1;
+                   @include transition(opacity 0.2s linear);
+                &:hover {
+                    opacity: 0.7;
+                    }
+                }
+             }
 #menu-footer-menu {
     float: left;
     width: 70%;
@@ -2901,7 +2909,7 @@ li.problem { margin: 1em 0 0 0;
 footer .menu > li {
     float: left;
     padding: 0em 0em 0em 1.5%;
-	width:23.5%;
+    width:23.5%;
 }
 
 
@@ -2909,7 +2917,7 @@ footer .menu > li {
     footer .menu > li {
         margin: 5px 0px;
         width: 100%;
-		padding: 0em 0em 0em 0;
+        padding: 0em 0em 0em 0;
     }
 }
 footer .menu > li ul.sub-menu {
@@ -2919,8 +2927,8 @@ footer .menu > li ul li {
     display: block;
     float: none;
     width: 97%;
-	padding-left:3%;
-	@include border-radius(0.25em);
+    padding-left:3%;
+    @include border-radius(0.25em);
 }
 @include responsive (small-max-screens) {
     footer .menu > li ul li {
@@ -2969,7 +2977,7 @@ footer.bottomPage section#siteMap h3 {
     color: #202024;
     margin: 0em 0em 0.5em;
     text-align: left;
-	@include noWrapTxt;
+    @include noWrapTxt;
 }
 @include responsive (small-max-screens) {
     footer.bottomPage section#siteMap h3 {
@@ -3026,7 +3034,7 @@ footer.bottomPage section#siteMap div.socialAkvo div.newsLetter .subscribe {
 }
 @include responsive (small-max-screens) {
     footer.bottomPage section#siteMap div.socialAkvo div.newsLetter form {
-		@include box-sizing(border-box);
+        @include box-sizing(border-box);
         float: left;
         margin: 0px;
         margin-top: -10px;
@@ -3104,7 +3112,7 @@ footer.bottomPage section#siteMap div.socialAkvo div.newsLetter label {
 }
 footer.bottomPage section#siteMap div.socialAkvo div.newsLetter input {
     @include box-shadow(none);
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
     border: 1px solid #dedcdc;
     display: inline-block;
     font-size: 0.8em;
@@ -3113,7 +3121,7 @@ footer.bottomPage section#siteMap div.socialAkvo div.newsLetter input {
 }
 @include responsive (small-max-screens) {
     footer.bottomPage section#siteMap div.socialAkvo div.newsLetter input {
-		@include box-sizing(border-box);
+        @include box-sizing(border-box);
         display: block;
         font-size: 1.2em;
         margin: 5px auto 0em;
@@ -3247,8 +3255,8 @@ footer.bottomPage section#aboutAkvo div p {
     footer.bottomPage section#aboutAkvo div p {
         font-size: 1.1em;
         margin: 10px 0em 15px;
-		padding:0 1.5%;
-		width:97%;
+        padding:0 1.5%;
+        width:97%;
     }
 }
 footer.bottomPage small {
@@ -3271,7 +3279,7 @@ footer.bottomPage small:before {
     width: 100%;
 }
 /*************************************************************
-						Product Pages
+                        Product Pages
 *************************************************************/
 .rsr #mainbody,
 .akvoflow #mainbody,
@@ -3317,6 +3325,9 @@ nav.anchorNav2 {
 .akvopedia nav.anchorNav {
     background: rgba(190, 73 , 155, 0.1);
 }
+.team nav.anchorNav {
+    margin-bottom: 10px;
+}
 .mShownCollapse {
     display: none;
 }
@@ -3328,7 +3339,7 @@ nav.anchorNav h5 {
 p.mLabel {
     color: rgba(222, 137, 41, 0.8);
     /*color:    rgb(102,102,102);
-                	color:    rgb(0,0,0);*/
+                    color:    rgb(0,0,0);*/
     font-size: 0.6em;
     text-transform: uppercase;
 }
@@ -3395,7 +3406,7 @@ nav.anchorNav2 ul li a {
 
 @include responsive (small-max-screens) {
     nav.anchorNav ul li a, nav.anchorNav2 ul li a {
-    	@include border-radius(0.2em);
+        @include border-radius(0.2em);
         background: transparent;
         color: #fff;
         display: block;
@@ -3421,6 +3432,10 @@ nav.anchorNav ul li a:hover, nav.anchorNav2 ul li a:hover {
     background: rgba(255, 206, 0, 0.5);
     color: rgb(32, 32, 36);
 }
+.board {
+    text-align: center;
+}
+
 .productPage section {
     margin: 0em auto;
     padding: 0.5em 1em;
@@ -3527,9 +3542,9 @@ nav.anchorNav ul li a:hover, nav.anchorNav2 ul li a:hover {
     text-transform: none;
     width: 75%;
     /* text-shadow:    1px 1px 2px rgb(103,103,103);
-                	text-shadow:    1px 1px 2px rgba(0,0,0,0.7);
-                	color:     rgb(222, 137, 41);
-                	*/
+                    text-shadow:    1px 1px 2px rgba(0,0,0,0.7);
+                    color:     rgb(222, 137, 41);
+                    */
     color: rgb(100, 100, 100);
     z-index: 999999;
 }
@@ -3614,7 +3629,7 @@ section.inFivePoints li div {
 @include responsive (small-max-screens) {
 
     section.inFivePoints li div {
-		@include box-sizing(border-box);
+        @include box-sizing(border-box);
         padding: 0px 10px;
         width: 100%;
     }
@@ -3706,12 +3721,12 @@ section.inFivePoints li h3 {
 .rsrUpProdPag hgroup h2 {
     font-size: 1.4em;
     text-align: center;
-	margin:1em auto 2em auto;
+    margin:1em auto 2em auto;
 }
 .rsrUpDescr p {margin:3em auto;}
 #rsrUpTech ul li {
-	margin:0.5em 0 1em 25px;
-	}
+    margin:0.5em 0 1em 25px;
+    }
 #rsrTech ul li {
     margin: 0em 0em 2em;
 }
@@ -3737,7 +3752,7 @@ ol.threeFlowPoints li p {
     margin: 1em auto;
 }
 /*-----------------------------------
-			Contact Info Page
+            Contact Info Page
 ------------------------------------*/
 .contactInfo section {
     margin: 2em auto 0em auto;
@@ -3750,7 +3765,7 @@ ol.threeFlowPoints li p {
     padding-bottom: 49%;
     background: #ffd300 url(../images/map.gif) center no-repeat;
     background-size: 91%;
-    
+
     .marker {
         position: absolute;
         width: 4%;
@@ -3767,6 +3782,9 @@ ol.threeFlowPoints li p {
         box-sizing: border-box;
         @include responsive (small-max-screens) {
             display: none;
+        }
+        @include responsive (medium-max-screens) {
+          font-size: 16px;
         }
     }
     .marker.LON {
@@ -3788,12 +3806,13 @@ ol.threeFlowPoints li p {
   }
 }
 .hubs {
+    margin: 1%;
     li {
         margin: 70px auto 0;
         max-width: 800px;
         clear: left;
         overflow: hidden;
-        
+
         @include responsive (small-max-screens) {
             h4 {
                 margin-top: 0;
@@ -3802,7 +3821,7 @@ ol.threeFlowPoints li p {
                 display: none;
             }
         }
-        
+
         @include responsive (small-screens) {
             .text {
                 margin-left: 280px;
@@ -3827,7 +3846,7 @@ ol.threeFlowPoints li p {
 }
 
 /*-----------------------------------
-				Annual Report Page
+                Annual Report Page
 ------------------------------------*/
 .aReport {
     margin: 2em auto;
@@ -3839,7 +3858,7 @@ ol.threeFlowPoints li p {
     box-shadow:1px 1px 3px rgba(32,32,36,0.1), -1px -1px 3px rgba(32,32,36,0.1);
 }
 /*-----------------------------------
-				Team Page
+                Team Page
 ------------------------------------*/
 .teamPage {
     margin: 0em auto;
@@ -3876,7 +3895,7 @@ ul.staff li {
     display: inline;
     float: left;
     margin: 0em 0.8% 0px 0em;
-    min-height: 231px;
+    min-height: 200px;
     position: relative;
     width: 16%;
 }
@@ -3902,10 +3921,12 @@ ul.staff li small {
     -moz-transition: opacity 0.2s ease-in;
     -o-transition: opacity 0.2s ease-in;
     -webkit-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
     color: rgb(250, 162, 27);
     font-size: 0.8em;
     opacity: 0;
-    transition: opacity 0.2s ease-in;
+    line-height: 1.2em;
+    margin-top: 6px;
 }
 ul.staff li:hover small {
     opacity: 1;
@@ -4114,7 +4135,7 @@ ul.staff li:nth-child(6n) {
     width: 100%;
 }
 /*----------------------------------------------------------------------------------------------------------------------------------------
-																         Media section
+                                                                         Media section
 ----------------------------------------------------------------------------------------------------------------------------------------*/
 .media h2 {
     margin: 1.5em 0em 0.5em;
@@ -4158,7 +4179,7 @@ ul.staff li:nth-child(6n) {
     margin: 50px auto;
 }
 /*--------------------------------------------------------------------
-							Help section
+                            Help section
 --------------------------------------------------------------------*/
 .akvo-policies-and-terms ul {
     margin: 0em 0em 0em 10px;
@@ -4189,25 +4210,25 @@ ul.staff li:nth-child(6n) {
         background: url("../images/akvo-rsr_RGB_logo.png") no-repeat scroll center top rgba(0, 0, 0, 0);
         background-size: 50% auto;
         text-indent: -9999px;
-		@include responsive (small-max-screens) {
+        @include responsive (small-max-screens) {
 
                 margin:20px 0 0 0;
             }
     }
     &.flowHelp {
         background: url("../images/akvo-flow_RGB_logo.png") no-repeat scroll center top rgba(0, 0, 0, 0);
-		background-size: 56% auto;
+        background-size: 56% auto;
         text-indent: -9999px;
-		@include responsive (small-max-screens) {
+        @include responsive (small-max-screens) {
 
                 margin:20px 0 0 0;
             }
     }
     &.akvopediaHelp {
         background: url("../images/akvo-pedia_RGB_logo.png") no-repeat scroll center top rgba(0, 0, 0, 0);
-		 background-size: 65% auto;
+         background-size: 65% auto;
         text-indent: -9999px;
-		@include responsive (small-max-screens) {
+        @include responsive (small-max-screens) {
 
                 margin:20px 0 0 0;
             }
@@ -4218,38 +4239,38 @@ ul.staff li:nth-child(6n) {
         width: 120px;
         height: 120px;
         margin: 20px auto;
-		opacity:0.5;
+        opacity:0.5;
         position: relative;
         text-align: center;
         text-indent:-9999px;
-		&.rsrH {
-					background:url("../images/help_RSR_icn.png") center center no-repeat;
-					background-size:80% 80%;
-					}
-		&.flowH {
-					background: url("../images/help_FLOW_icn.png") center center no-repeat;
-					background-size:80% 80%;
-					}
-		&.pediaH {
-					background: url("../images/help_pedia_icn.png") center center no-repeat;
-					background-size:80% 80%;
-					}
-	}
+        &.rsrH {
+                    background:url("../images/help_RSR_icn.png") center center no-repeat;
+                    background-size:80% 80%;
+                    }
+        &.flowH {
+                    background: url("../images/help_FLOW_icn.png") center center no-repeat;
+                    background-size:80% 80%;
+                    }
+        &.pediaH {
+                    background: url("../images/help_pedia_icn.png") center center no-repeat;
+                    background-size:80% 80%;
+                    }
+    }
 }
 h1 {
-	&.rsrHelp {
+    &.rsrHelp {
         background: url("../images/akvo-rsr_RGB_logo_help.png") no-repeat scroll center top rgba(0, 0, 0, 0);
         background-size: auto 56px;
         text-indent: -9999px;
     }
     &.flowHelp {
         background: url("../images/akvo-flow_RGB_logo_help.png") no-repeat scroll center top rgba(0, 0, 0, 0);
-		background-size: auto 56px;
+        background-size: auto 56px;
         text-indent: -9999px;
     }
     &.akvopediaHelp {
         background: url("../images/akvo-pedia_RGB_logo_help.png") no-repeat scroll center top rgba(0, 0, 0, 0);
-		 background-size: auto 56px;
+         background-size: auto 56px;
         text-indent: -9999px;
     }
 }
@@ -4331,7 +4352,7 @@ h1 {
 
 
 /*--------------------------------------------------------------------
-							Network Page
+                            Network Page
 --------------------------------------------------------------------*/
 #akvoDashboard {
     background: $akvoBlack;
@@ -4351,7 +4372,7 @@ h1 {
 }
 #akvoDashboard ul li.dashSingle {
     @include border-radius(0.25em);
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.1);
     display: inline;
@@ -4537,9 +4558,9 @@ h1 {
         @media screen and (min-width:960px) {
             background: none;
             display: inline-block;
-			width:100%;
-			margin:14px auto 0;
-			height:30px;
+            width:100%;
+            margin:14px auto 0;
+            height:30px;
         }
     }
     &:hover ul li.upMore a {
@@ -4551,7 +4572,7 @@ h1 {
         text-align: center;
         transition: color 0.4s ease-in;
         @media screen and (max-width:960px) {
-			text-align:center;
+            text-align:center;
         }
     }
     &:hover ul li.upMore span {
@@ -4677,12 +4698,12 @@ h1 {
     font-size: 0.8em;
     margin: 0.75em 0em 0.75em 1.75em;
     padding: 0.15em 1em 0.35em;
-	a {  
-	   color: rgb(255, 255, 255);
-	   &:hover {
-		   color: $flowOrange;
-	  }
-	} 
+    a {
+       color: rgb(255, 255, 255);
+       &:hover {
+           color: $flowOrange;
+      }
+    }
     @media screen and (min-width:960px) {
         display: inline-block;
         margin: 0em 0em 0em 0.5em;
@@ -4699,7 +4720,7 @@ h1 {
     @media screen and (min-width:960px) {
         display: block;
         margin: 0em 0em 0em 0.35em;
-    	width: 80%;
+        width: 80%;
     }
 }
 @include responsive (small-max-screens) {
@@ -4770,7 +4791,7 @@ h1 {
 }
 #rsrNetworkMap iframe {}
 /***********************************
-						Price table
+                        Price table
 ********************************************/
 .pricingList {
     margin: 3em auto;
@@ -4790,7 +4811,7 @@ h1 {
 .pricingList p {
     display: block;
     margin: 1em auto;
-	padding:25px;
+    padding:25px;
 }
 @include responsive (small-max-screens) {
 
@@ -4830,4 +4851,15 @@ h1 {
 }
 div[id^="inline-"] {
     display: none;
+}
+
+
+
+/*-----------------------------------
+                Work with us
+------------------------------------*/
+.working-at-akvo ul {
+    margin-left: 2em;
+    line-height: 1.6em;
+    list-style: disc;
 }
