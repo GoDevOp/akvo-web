@@ -5068,7 +5068,9 @@ div[id^="inline-"] {
         position: static; }
         .rsrProdPagWhatsNew section.improvedNavigation .improvedNavigationCaption h3 {
           text-align: center;
-          padding: 1.2em 0 0.75em 0; } }
+          padding: 1.2em 0 0.75em 0;
+          margin-left: auto;
+          margin-right: auto; } }
 @media only screen and (max-width: 768px) {
   .rsrProdPagWhatsNew p.fullWidthParag {
     text-align: justify; } }
