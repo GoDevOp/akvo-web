@@ -5019,7 +5019,8 @@ div[id^="inline-"] {
       float: right;
       background: whitesmoke; }
     .rsrProdPagWhatsNew section.sideBySide .container img {
-      max-width: 100%; }
+      max-width: 100%;
+      width: 100%; }
     @media only screen and (min-width: 768px) {
       .rsrProdPagWhatsNew section.sideBySide .container .fullWidthParag {
         width: 100%; } }
@@ -5048,8 +5049,10 @@ div[id^="inline-"] {
   .rsrProdPagWhatsNew section.improvedNavigation .improvedNavigationCaption {
     position: absolute;
     left: 10%;
-    top: 15%;
-    max-width: 75%; }
+    top: 15%; }
+    @media only screen and (min-width: 992px) {
+      .rsrProdPagWhatsNew section.improvedNavigation .improvedNavigationCaption {
+        max-width: 75%; } }
     @media only screen and (min-width: 768px) and (max-width: 992px) {
       .rsrProdPagWhatsNew section.improvedNavigation .improvedNavigationCaption {
         max-width: 60%; } }
