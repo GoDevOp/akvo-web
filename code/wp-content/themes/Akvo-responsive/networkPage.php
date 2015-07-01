@@ -21,13 +21,15 @@ Template Name: akvoNetwork
         <?php
         use DataFeed\DataFeed;
 
-        function feedData($label, $apiURL, $timeOut=3600) {
-          $feedHandle = DataFeed::handle($label, $apiURL, $timeOut);
+        function feedData($label, $apiURL, $timeOut=3600, $pagination=null) {
+          $feedHandle = DataFeed::handle($label, $apiURL, $timeOut, $pagination);
           return $feedHandle->getCurrentItem();
         }
         $refreshSeconds = 3600; //an hour
+        // RSR KPIs fetch
         $rightNowInAkvo = feedData('rightNowInAkvo', 'http://rsr.akvo.org/api/v1/right_now_in_akvo/', $refreshSeconds);
         $rsrUpdateCount = feedData('rsrUpdateCount', 'http://rsr.akvo.org/api/v1/project_update/?limit=1', $refreshSeconds);
+        // OpenAid KPIs fetch
         $openAidActivities = feedData(
           'openAidActivities',
           'http://oipa.openaidsearch.org/api/v2/activities/?format=json&limit=1', $refreshSeconds
@@ -36,6 +38,7 @@ Template Name: akvoNetwork
           'openAidOrgs',
           'http://oipa.openaidsearch.org/api/v2/organisations/?format=json&limit=1', $refreshSeconds
         );
+        // Akvopedia KPIs fetch
         $akvopediaAnalytics = feedData(
           'akvopediaAnalytics',
           'http://analytics.akvo.org/index.php?module=API&method=API.get&idSite=9&period=range&date=2013-04-01,today&format=json',
@@ -46,7 +49,6 @@ Template Name: akvoNetwork
           'http://akvopedia.org/wiki/api.php?action=query&meta=siteinfo&siprop=statistics&format=json',
           $refreshSeconds
         );
-
         ?>
 
         <li class="dashSingle" id="rsrDash">
@@ -187,7 +189,36 @@ Template Name: akvoNetwork
         </ul>
       </nav>
       <ul id="updatesWrapperJS" class="floats-in wrapper">
-        ['rsr-updates']
+        <?php
+          // RSR updates fetch
+          $rsrUpdates = feedData(
+            'rsrUpdates',
+            'http://rsr.akvo.org/api/v1/project_update_extra/?limit=60&photo__gte=a',
+            $refreshSeconds,
+            "page-url=next:meta.next"
+          );
+          $updates = $rsrUpdates['objects'];
+          $rsr_domain = "http://rsr.akvo.org";
+          $count = 1;
+          foreach($updates as $update) {
+            if ($update['photo'] != '') {
+//              if ($count > 3)
+//                break;
+//              $count++;
+              $date = explode('T', $update['time_last_updated']);
+              $date = $date[0];
+              $full_name = $update['user']['first_name'] . " " . $update['user']['last_name'];
+              $country_and_city = $update['project']['primary_location']['country']['name'];
+              if ($update['project']['primary_location']['city'])
+                $country_and_city = $update['project']['primary_location']['city'] .", ". $country_and_city;
+              json_data_render_update(
+                $rsr_domain , $update['absolute_url'], $update['title'], $update['photo'], $date, $full_name,
+                $update['user']['organisation']['name'], $update['user']['organisation']['absolute_url'],
+                $country_and_city, $update['text']
+              );
+            }
+          }
+        ?>
       </ul>
     </section>
 
