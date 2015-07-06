@@ -190,34 +190,34 @@ Template Name: akvoNetwork
       </nav>
       <ul id="updatesWrapperJS" class="floats-in wrapper">
         <?php
-          // RSR updates fetch
-          $rsrUpdates = feedData(
-            'rsrUpdates',
-            'http://rsr.akvo.org/api/v1/project_update_extra/?limit=60&photo__gte=a',
-            $refreshSeconds,
-            "page-url=next:meta.next"
-          );
-          $updates = $rsrUpdates['objects'];
-          $rsr_domain = "http://rsr.akvo.org";
-          $count = 1;
-          foreach($updates as $update) {
-            if ($update['photo'] != '') {
-//              if ($count > 3)
-//                break;
-//              $count++;
-              $date = explode('T', $update['time_last_updated']);
-              $date = $date[0];
-              $full_name = $update['user']['first_name'] . " " . $update['user']['last_name'];
-              $country_and_city = $update['project']['primary_location']['country']['name'];
-              if ($update['project']['primary_location']['city'])
-                $country_and_city = $update['project']['primary_location']['city'] .", ". $country_and_city;
-              json_data_render_update(
-                $rsr_domain , $update['absolute_url'], $update['title'], $update['photo'], $date, $full_name,
-                $update['user']['organisation']['name'], $update['user']['organisation']['absolute_url'],
-                $country_and_city, $update['text']
-              );
-            }
+        // RSR updates fetch
+        $rsrUpdates = feedData(
+          'rsrUpdates',
+          'http://rsr.uat.akvo.org/api/v1/project_update_extra/?photo__gte=a',
+          300,
+          "page-url=next:meta->next&limit=3"
+        );
+        $updates = $rsrUpdates['objects'];
+        $rsr_domain = "http://rsr.akvo.org";
+        $count = 1;
+        foreach($updates as $update) {
+          if ($update['photo'] != '') {
+            if ($count > 3)
+              break;
+            $count++;
+            $date = explode('T', $update['time_last_updated']);
+            $date = $date[0];
+            $full_name = $update['user']['first_name'] . " " . $update['user']['last_name'];
+            $country_and_city = $update['project']['primary_location']['country']['name'];
+            if ($update['project']['primary_location']['city'])
+              $country_and_city = $update['project']['primary_location']['city'] .", ". $country_and_city;
+            json_data_render_update(
+              $rsr_domain , $update['absolute_url'], $update['title'], $update['photo'], $date, $full_name,
+              $update['user']['organisation']['name'], $update['user']['organisation']['absolute_url'],
+              $country_and_city, $update['text']
+            );
           }
+        }
         ?>
       </ul>
     </section>
