@@ -2,6 +2,9 @@
 
 namespace DataFeed\Pagination;
 
+use DataFeed\DataFeed;
+use DataFeed\ObjectQuery\ObjectQueryLanguage;
+
 /**
  * A page url selector that supports pagination via a next url in the previous item.
  */
@@ -9,34 +12,53 @@ class NextPageUrl implements PageUrl
 {
 
 	/**
-	 * The fieldname.
+	 * The fieldname expression in the given object query language.
 	 *
 	 * @var string
 	 */
-	private $fieldName;
+	private $fieldExpr;
 
-	public function __construct( $fieldName = 'next' )
+	/**
+	 * Injected object query language.
+	 *
+	 * @var ObjectQueryLanguage
+	 */
+	private $objectQueryLanguage;
+
+	public function __construct( ObjectQueryLanguage $objectQueryLanguage, $fieldExpr = 'meta->next' )
 	{
-		if ( is_string( $fieldName ) ) {
-			$this->fieldName = $fieldName;
+		if ( is_string( $fieldExpr ) ) {
+			$this->fieldExpr = $fieldExpr;
 		} else {
-			$this->fieldName = 'next';
+			$this->fieldExpr = 'meta->next';
 		}
+		$this->objectQueryLanguage = $objectQueryLanguage;
 	}
 
-	private function next( $item )
+	private function next( $item, $mainUrl )
 	{
-		if (is_object($item)) {
-			$url = isset($item->{$this->fieldName}) ? $item->{$this->fieldName} : null;
-		} else if (is_array($item)) {
-			$url = isset($item[$this->fieldName]) ? $item[$this->fieldName] : null;
-		} else {
-			$url = null;
-		}
+		$url = $this->objectQueryLanguage->query( $this->fieldExpr, $item );
+
 		if (empty( $url )) {
 			return null;
 		}
-		return $url;
+
+		$parts = parse_url( $url );
+		if (isset($parts['scheme'])) {
+			return $url;
+		}
+		$mainParts = parse_url( $mainUrl );
+		$parts['scheme'] = $mainParts['scheme'];
+		if (!isset($parts['host']) && isset( $mainParts['host']) ) {
+			$parts['host'] = $mainParts['host'];
+			if (!isset($parts['port']) && isset($mainParts['port'])) {
+				$parts['port'] = $mainParts['port'];
+			}
+		}
+		if (!isset($parts['path']) && isset($mainParts['path'])) {
+			$parts['path'] = $mainParts['path'];
+		}
+		return DataFeed::build_url( $parts );
 	}
 
 	public function pageUrl( &$meta, $url, $prevPage, $page )
@@ -51,7 +73,7 @@ class NextPageUrl implements PageUrl
 					throw new PageUrlFailureException('No previous page and no cached URL for page number ' + $page + ' of feed ' . $url . '!' );
 				}
 			}
-			$nextUrl = $this->next( $prevPage );
+			$nextUrl = $this->next( $prevPage, $url );
 		}
 
 		if ( isset( $meta[self::PAGE_URL_ARRAY] ) && isset( $meta[self::PAGE_URL_ARRAY][$page] )) {

@@ -155,18 +155,6 @@ class FeedHandle
 		return $this->name;
 	}
 
-	private static function build_url( $parts )
-	{
-		return
-			((isset($parts['scheme'])) ? $parts['scheme'] . '://' : '')
-            .((isset($parts['user'])) ? $parts['user'] . ((isset($parts['pass'])) ? ':' . $parts['pass'] : '') .'@' : '')
-            .((isset($parts['host'])) ? $parts['host'] : '')
-            .((isset($parts['port'])) ? ':' . $parts['port'] : '')
-            .((isset($parts['path'])) ? $parts['path'] : '')
-            .((isset($parts['query'])) ? '?' . $parts['query'] : '')
-            .((isset($parts['fragment'])) ? '#' . $parts['fragment'] : '');
-	}
-
 	/**
 	 * @return string The URL in effect of this feed.
 	 */
@@ -199,7 +187,7 @@ class FeedHandle
 
 			$parts['query'] = \http_build_query( $query );
 
-			$eUrl = self::build_url( $parts );
+			$eUrl = DataFeed::build_url( $parts );
 		}
 
 		return $eUrl;
@@ -476,11 +464,14 @@ class FeedHandle
 		}
 		$pageUpdateCheckComponent = $this->page_update_check_factory->create( $page_update_check );
 
-
 		$this->feed_item_cache = DataFeed::component( DataFeed::MERGING_FEED_CACHE );
 
 		$this->feed_item_cache->setPageUpdateCheck( $pageUpdateCheckComponent );
 		$this->feed_item_cache->setPageUrl( $pageUrlComponent );
+
+		if (isset($parameters['limit']) && \is_numeric($parameters['limit']) ) {
+			$this->feed_item_cache->setLimit((int) $parameters['limit']);
+		}
 		
 	}
 }

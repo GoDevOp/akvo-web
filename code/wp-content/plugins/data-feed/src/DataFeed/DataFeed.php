@@ -114,7 +114,7 @@ class DataFeed
 					return new \DataFeed\Pagination\PageUpdateCheckFactory();
 				},
 				DataFeed::PAGE_URL_FACTORY => function( $c ) {
-					return new \DataFeed\Pagination\PageUrlFactory();
+					return new \DataFeed\Pagination\PageUrlFactory( $c[DataFeed::OBJECT_QUERY_LANGUAGE] );
 				},
 				DataFeed::OBJECT_MERGER => function( $c ) {
 					return new \DataFeed\ObjectMerge\DefaultObjectMerge();
@@ -265,7 +265,7 @@ class DataFeed
 
 			\error_log('pagination_policy:' . $a['pagination_policy'] . "\n" . 'parameters: ' . print_r( $parameters, true ) );
 
-			foreach ( array( 'page-url', 'page-update-check' ) as $s ) {
+			foreach ( array( 'page-url', 'page-update-check', 'limit' ) as $s ) {
 				if (isset($parameters[$s])) {
 					$component = $parameters[$s];
 					\error_log( 'component: ' . $component );
@@ -287,6 +287,11 @@ class DataFeed
 							return 'Invalid page-update-check component: "' . $component . '" supported are "null" and "version-array".';
 						}
 					}
+					if ( $s == 'limit' ) {
+						if ( !\is_int($component) ) {
+							return 'Invalid limit, must be an integer: "' . $component . '".';
+						}
+					}
 					unset($parameters[$s]);
 				}
 			}
@@ -298,6 +303,22 @@ class DataFeed
 
 		$atts = $a;
 
+	}
+
+
+	/**
+	 * Utility function for generating a URL from the parts obtained from parse_url.
+	 */
+	public static function build_url( $parts )
+	{
+		return
+			((isset($parts['scheme'])) ? $parts['scheme'] . '://' : '')
+            .((isset($parts['user'])) ? $parts['user'] . ((isset($parts['pass'])) ? ':' . $parts['pass'] : '') .'@' : '')
+            .((isset($parts['host'])) ? $parts['host'] : '')
+            .((isset($parts['port'])) ? ':' . $parts['port'] : '')
+            .((isset($parts['path'])) ? $parts['path'] : '')
+            .((isset($parts['query'])) ? '?' . $parts['query'] : '')
+            .((isset($parts['fragment'])) ? '#' . $parts['fragment'] : '');
 	}
 
 }
