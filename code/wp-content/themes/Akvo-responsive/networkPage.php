@@ -29,26 +29,6 @@ Template Name: akvoNetwork
         // RSR KPIs fetch
         $rightNowInAkvo = feedData('rightNowInAkvo', 'http://rsr.akvo.org/api/v1/right_now_in_akvo/', $refreshSeconds);
         $rsrUpdateCount = feedData('rsrUpdateCount', 'http://rsr.akvo.org/api/v1/project_update/?limit=1', $refreshSeconds);
-        // OpenAid KPIs fetch
-        $openAidActivities = feedData(
-          'openAidActivities',
-          'http://oipa.openaidsearch.org/api/v2/activities/?format=json&limit=1', $refreshSeconds
-        );
-        $openAidOrgs = feedData(
-          'openAidOrgs',
-          'http://oipa.openaidsearch.org/api/v2/organisations/?format=json&limit=1', $refreshSeconds
-        );
-        // Akvopedia KPIs fetch
-        $akvopediaAnalytics = feedData(
-          'akvopediaAnalytics',
-          'http://analytics.akvo.org/index.php?module=API&method=API.get&idSite=9&period=range&date=2013-04-01,today&format=json',
-          $refreshSeconds
-        );
-        $akvopediaArticles = feedData(
-          'akvopediaArticles',
-          'http://akvopedia.org/wiki/api.php?action=query&meta=siteinfo&siprop=statistics&format=json',
-          $refreshSeconds
-        );
         ?>
 
         <li class="dashSingle" id="rsrDash">
@@ -114,6 +94,17 @@ Template Name: akvoNetwork
           <a href="" class="moreLink darkBg  hidden">See more</a>
         </li>
 
+        <?php
+        // OpenAid KPIs fetch
+        $openAidActivities = feedData(
+          'openAidActivities',
+          'http://oipa.openaidsearch.org/api/v2/activities/?format=json&limit=1', $refreshSeconds
+        );
+        $openAidOrgs = feedData(
+          'openAidOrgs',
+          'http://oipa.openaidsearch.org/api/v2/organisations/?format=json&limit=1', $refreshSeconds
+        );
+        ?>
         <li class="dashSingle" id="opendaidDash">
           <h2>Akvo Openaid</h2>
           <ul class="openAidData dashData">
@@ -144,6 +135,19 @@ Template Name: akvoNetwork
           <a href="" class="moreLink darkBg hidden">See more</a>
         </li>
 
+        <?php
+        // Akvopedia KPIs fetch
+        $akvopediaArticles = feedData(
+        'akvopediaArticles',
+        'http://akvopedia.org/wiki/api.php?action=query&meta=siteinfo&siprop=statistics&format=json',
+        $refreshSeconds
+        );
+        $akvopediaAnalytics = feedData(
+          'akvopediaAnalytics',
+          'http://analytics.akvo.org/index.php?module=API&method=API.get&idSite=9&period=range&date=2013-04-01,today&format=json',
+          $refreshSeconds
+        );
+        ?>
         <li class="dashSingle" id="akvopediaDash">
           <h2>Akvopedia</h2>
           <ul class="wikiData dashData">
