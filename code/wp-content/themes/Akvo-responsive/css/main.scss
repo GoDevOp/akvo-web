@@ -545,14 +545,6 @@ footer a:visited {
     background: url("../images/moreLink.png") right bottom no-repeat;
 }
 
-.tooltips {
-    background: url("../images/helpIcn.png") right bottom no-repeat;
-}
-
-.tooltips:hover {
-    background: url("../images/helpIcn.png") right bottom no-repeat;
-}
-
 @include responsive(small-max-screens) {
     .tooltips {
         display: none;

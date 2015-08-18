@@ -12,7 +12,10 @@ Template Name: akvoNetwork
     <?php the_content(); ?>
   </div>
   <?php endwhile; // end of the loop. ?>
-  
+     <a href="#"
+          title="<p><em style='display:block;color:rgb(114, 205, 255);'>How is this data collected?</em> Automatically from the Akvo RSR database via the <a href='https://github.com/akvo/akvo-rsr/wili/Akvo-RSR-API'>RSR API</a></p>
+          <p><em style='display:block;color:rgb(114, 205, 255);'>How often is this data refreshed?</em> Every four hours.</p>"
+          class="tooltips moreLink ">info</a> <a href="" class="moreLink darkBg  hidden">See more</a>
   <section id="akvoDashboard">
     <h2>Data collected with Akvo tools</h2>
     

@@ -35,9 +35,7 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style.css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quando">
-<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
 
 
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script('comment-reply'); ?>
@@ -46,7 +44,11 @@
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+    
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' );?>
+    
+
+    
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,900,700,600,300,200,500|Questrial|Inconsolata|Muli:400,300italic,400italic,300|Raleway:400,900,800,700,600,500,100,200,300|Lobster|Lobster+Two:400,400italic,700,700italic|Lato:400,100,300,700,900,100italic,300italic,400italic,900italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 

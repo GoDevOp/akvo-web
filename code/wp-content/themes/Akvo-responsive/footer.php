@@ -68,11 +68,6 @@
 </script>
 
 
-<!-- End Piwik Code -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
 <script src="<?php bloginfo('template_directory'); ?>/js/common-js.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/akvo-jquery.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.fitvids.js"></script>
